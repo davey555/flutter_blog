@@ -1,4 +1,4 @@
-## code clan week one project flutter_blog
+## CODE CLAN WEEK ONE PROJECT flutter_blog
 
 A new Flutter project.
 
