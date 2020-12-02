@@ -6,5 +6,8 @@ void main() => runApp(MaterialApp(
         initialRoute: 'loginpage',
         routes: {
           'loginpage': (context) => LoginPage(),
+          'bloghome': (context) => BlogHome(), 
+          'blogpost' : ( context) => BlogPost(), 
+          'blogfeed': (context) => BlogFeed(), 
+          'notifications': (context) => Notif(), 
         }));
-// google_fonts: ^1.1.1
