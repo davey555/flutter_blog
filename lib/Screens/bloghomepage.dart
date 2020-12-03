@@ -6,6 +6,7 @@ class BlogHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -99,19 +100,12 @@ class BlogHome extends StatelessWidget {
               SizedBox(height: 20),
             
             
-              buildBlogList(
-                  Image(image: AssetImage('images/laptop.jpg')),
-                  'OS',
-                  Colors.green,
-                  'Ios 13 Features',
-                  '40 mins ago',
-                  '238 comments'),
-              SizedBox(height: 20),
+            
             
                     buildBlogList(
                   Image(image: AssetImage('images/fourth.png')),
                   'Tech',
-                  Colors.yellow,
+                  Colors.purple,
                   'Bset Tech Blogs 2020',
                   '20 mins ago',
                   '270 comments'),
@@ -172,51 +166,62 @@ class BlogHome extends StatelessWidget {
 //CUSTOM WIDGET FOR THE BLOG TITLE CARDS
   Widget buildBlogList(Image img, String toptitle, Color toptitlecolor,
       String story, String timeposted, String comments) {
-    return Container(
-        child: ListTile(
+    return ListTile(
       contentPadding: EdgeInsets.all(5),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       leading: ClipRRect(
-        child: img,
-        borderRadius: BorderRadius.circular(5),
+    child: img,
+    borderRadius: BorderRadius.circular(5),
       ),
       isThreeLine: true,
-      title: Text(toptitle.toUpperCase(),
-          style: GoogleFonts.montserrat(
-            color: Colors.white,
-            backgroundColor: toptitlecolor,
-          )),
+      title: Container(
+   
+padding: EdgeInsets.all(8), 
+    decoration: BoxDecoration( 
+      borderRadius: BorderRadius.circular(5),
+      color: toptitlecolor, 
+    ), 
+    child: Text(toptitle.toUpperCase(),
+        style: GoogleFonts.montserrat(
+          color: Colors.white,
+          
+        )),
+      ),
       subtitle: Column(children: [
-        SizedBox(height: 5),
+    SizedBox(height: 10),
+    Row(
+      children: [
         Text(story,
             style: GoogleFonts.montserrat(
               color: Colors.black,
               fontWeight: FontWeight.bold,
             )),
-        SizedBox(height: 20),
+      ],
+    ),
+    SizedBox(height: 20),
+    Row(
+      children: [
         Row(
           children: [
-            Row(
-              children: [
-                Icon(EvaIcons.clockOutline, size: 15, color: Colors.black),
-                SizedBox(width: 4),
-                Text(
-                  timeposted,
-                ),
-              ],
+            Icon(EvaIcons.clockOutline, size: 15, color: Colors.black),
+            SizedBox(width: 4),
+            Text(
+              timeposted,
             ),
-            SizedBox(width: 30),
-            Row(children: [
-              Icon(EvaIcons.messageCircleOutline,
-                  size: 15, color: Colors.black),
-              SizedBox(width: 4),
-              Text(
-                comments,
-              ),
-            ]),
           ],
         ),
+        SizedBox(width: 30),
+        Row(children: [
+          Icon(EvaIcons.messageCircleOutline,
+              size: 15, color: Colors.black),
+          SizedBox(width: 4),
+          Text(
+            comments,
+          ),
+        ]),
+      ],
+    ),
       ]),
-    ));
+    );
   }
 }
